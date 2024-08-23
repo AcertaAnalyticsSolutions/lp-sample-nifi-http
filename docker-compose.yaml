@@ -1,0 +1,31 @@
+services:
+  nifi:
+    build: ./nifi
+    container_name: nifi
+    environment:
+      - NIFI_WEB_HTTPS_PORT=8443
+      - SINGLE_USER_CREDENTIALS_USERNAME=admin
+      - SINGLE_USER_CREDENTIALS_PASSWORD=$NIFI_ADMIN_PASSWORD
+      - NIFI_SENSITIVE_PROPS_KEY=$NIFI_ADMIN_PASSWORD
+      - MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD
+      - INGESTOR_UUID=$INGESTOR_UUID
+    ports:
+      - "8443:8443"
+    restart: always
+    depends_on:
+      - database
+  database:
+    build: ./database
+    container_name: mssql
+    hostname: mssql
+    environment:
+      - ACCEPT_EULA=Y 
+      - MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD
+      - TZ=America/Toronto
+    ports:
+      - 1433:1433
+    restart: always
+    volumes:
+      - database-data:/var/opt/mssql
+volumes:
+    database-data:
