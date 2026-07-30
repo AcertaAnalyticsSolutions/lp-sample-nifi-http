@@ -1,3 +1,6 @@
+# Service Context
+Before starting any task in this repository, read `service.md` in the repo root if it exists. It contains service-specific context, architecture notes, and conventions that take precedence over general guidelines.
+
 # Code generation in Node.js and Python
 - Do not comment the code you (AI engine) generate. Comments from humans are acceptable.
 - Use camel case naming for variables and functions names. For example: myVariable.
