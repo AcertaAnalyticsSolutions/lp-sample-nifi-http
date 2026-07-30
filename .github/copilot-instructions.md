@@ -14,7 +14,11 @@ Before starting any task in this repository, read `service.md` in the repo root 
 - Order functions top-down by call flow: public functions first, then private functions they call, then deeper private helpers
 - Avoid adding tests for trivial changes
 - Avoid abbreviations and single-letter identifiers
- 
+- Format dynamic log fields as `human-readable label: {value}`. Expand camelCase and snake_case labels into words,
+  use `ID` for `Id`, and preserve standard acronym casing such as `MLflow`, `UTC`, and `URL`. For
+  example, write `MLflow run ID: {mlflowRunId}` instead of `mlflowRunId: {mlflowRunId}`. Change only the label
+  text, not the variable or logging behavior
+
 
 # Node.js:
 - Always use curly braces {} for if statements, even when the body is a single line
@@ -67,4 +71,3 @@ The test: Every changed line should trace directly to the user's request.
 - "Refactor X" → ensure tests pass before and after.
 
 For multi-step tasks, state a brief plan before starting. Strong success criteria let you loop independently; weak ones ("make it work") require constant clarification.
- 
