@@ -18,6 +18,7 @@ Before starting any task in this repository, read `service.md` in the repo root 
   use `ID` for `Id`, and preserve standard acronym casing such as `MLflow`, `UTC`, and `URL`. For
   example, write `MLflow run ID: {mlflowRunId}` instead of `mlflowRunId: {mlflowRunId}`. Change only the label
   text, not the variable or logging behavior
+- In Python, format log messages with f-strings
 
 
 # Node.js:
